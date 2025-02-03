@@ -32,18 +32,48 @@ It includes:
 ## 📜 Strategy Breakdown
 
 ### 1️⃣ **Historical Data Analysis (`Intraday_Option_Return_Historical_Data.ipynb`)**
-- Fetches **intraday stock and options data**.
-- Computes **straddle returns** over a 30-minute window.
-- Runs **cross-sectional regressions** to determine if yesterday's return influences today's return.
-- Constructs a **momentum portfolio**:
-  - **Long** on the top-performing options.
+This script **retrieves historical stock and option price data** to analyze **intraday straddle returns**. It follows these key steps:
+
+#### 🔹 **Fetching Historical Data**
+- Uses **Interactive Brokers (`ib_insync`) API** to fetch **1-minute stock price data** for **S&P 500 stocks**.
+- Filters **30-minute time slots** (e.g., 9:35 AM, 10:00 AM, etc.) to compute intraday returns.
+
+#### 🔹 **Calculating Straddle Returns**
+- Retrieves **at-the-money (ATM) options** with expirations between **30 to 180 days**.
+- Fetches **intraday call and put option prices** every **30-minute time slots**.
+- Computes **log-returns of straddles** based on the price difference.
+
+#### 🔹 **Cross-Sectional Regression Analysis**
+- Runs a **cross-sectional regression** to measure if **yesterday’s return** influences today’s return.
+- Plots the **gamma coefficient** and **T-statistics** to validate the return persistence.
+
+#### 🔹 **Backtesting a High-Low Portfolio**
+- Constructs a **long-short portfolio** based on momentum:
+  - **Long** on options with the highest past performance.
   - **Short** on the worst-performing options.
+- Computes **cumulative returns** for each **30-minute period** and **plots Sharpe ratios** to identify the best trading windows.
+
+
 
 ### 2️⃣ **Live Paper Trading (`Intraday_Option_Return_Paper_Trading.ipynb`)**
-- Uses **IBKR API (`ib_insync`)** to fetch **real-time market data**.
-- **Places market orders** at the next trading session open.
-- Continuously **updates the portfolio** based on the strategy signals.
-- **Monitors performance metrics** and logs trades.
+This script implements the **live execution** of the strategy in **Interactive Brokers’ Paper Trading** environment.
+
+#### 🔹 **Fetching Real-Time Market Data**
+- Uses **IBKR API** to get **stock prices at 9:35 AM**.
+- Retrieves **ATM options data** for the **most liquid S&P 500 stocks**.
+
+#### 🔹 **Placing Trades**
+- **Ranks stocks based on previous-day straddle returns**.
+- Buys **long straddles** for the **top quantile** (Q5).
+- Sells **short straddles** for the **bottom quantile** (Q1).
+
+#### 🔹 **Closing Positions**
+- **Closes all positions at 10:00 AM** (after 25 minutes of holding).
+
+#### 🔹 **Monitoring PnL**
+- Retrieves **realized and unrealized PnL** at both:
+  - **Account Level**
+  - **Position Level** (for each ticker)
 
 ---
 
