@@ -1,6 +1,6 @@
 # 📈 Systematic Options Strategy
 
-This repository contains a **quantitative trading strategy** for options, inspired by academic research on **momentum patterns in options markets**. The strategy is designed to predict intraday **high and low returns of straddles** based on the previous day's returns in the same time window.
+This repository contains a **quantitative trading strategy** for options, inspired by academic research on **momentum patterns in options markets**. The strategy is designed to build an intraday portfolio from **high and low returns of straddles** based on the previous day's returns in the same time window.
 
 It includes:
 - **Historical Data Processing** (`Intraday_Option_Return_Historical_Data.ipynb`): Fetches and analyzes historical intraday returns of options.
@@ -74,6 +74,18 @@ This script implements the **live execution** of the strategy in **Interactive B
 - Retrieves **realized and unrealized PnL** at both:
   - **Account Level**
   - **Position Level** (for each ticker)
+
+---
+
+## 📚 References
+
+This strategy is inspired by the academic paper:
+
+- **"Intraday Option Return: A Tale of Two Momentum"** (16 Dec 2024)  
+  *Authors:* Zhi Da, Ruslan Goyenko, and Chengyu Zhang. 
+  📄 [Read the paper here](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5018430)
+
+The paper explores **short-term momentum in option prices**, revealing **predictability in intraday returns**.
 
 ---
 
