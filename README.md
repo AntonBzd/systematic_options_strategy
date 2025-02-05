@@ -91,11 +91,12 @@ The paper explores **short-term momentum in option prices**, revealing **predict
 
 ## 📚 Dependencies
 
-To install required libraries:
+- To install required libraries:
 
 ```bash
 pip install ib_insync pandas numpy scipy yfinance matplotlib statsmodels nest_asyncio
 ```
+- Install Interactive Brokers Gateway (10.30 version)
 
 ---
 
