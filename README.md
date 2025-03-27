@@ -77,6 +77,18 @@ This script implements the **live execution** of the strategy in **Interactive B
 
 ---
 
+## 📚 Dependencies
+
+- Install Interactive Brokers Gateway (10.30 version)
+- Install Ngrok for the API Gateaway
+- To install required libraries on Google Colab:
+```bash
+!pip install ib_insync pandas numpy scipy yfinance matplotlib statsmodels nest_asyncio
+```
+
+---
+
+
 ## 📚 References
 
 This strategy is inspired by the academic paper:
@@ -89,16 +101,6 @@ The paper explores **short-term momentum in option prices**, revealing **predict
 
 ---
 
-## 📚 Dependencies
-
-- To install required libraries:
-
-```bash
-pip install ib_insync pandas numpy scipy yfinance matplotlib statsmodels nest_asyncio
-```
-- Install Interactive Brokers Gateway (10.30 version)
-
----
 
 ## 🔥 Author & Contact
 👤 **Antonin Bezard**  
