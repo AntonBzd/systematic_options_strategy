@@ -77,7 +77,7 @@ This script implements the **live execution** of the strategy in **Interactive B
 
 ---
 
-## 📚 Dependencies
+## 💻 Dependencies
 
 - Install Interactive Brokers Gateway (10.30 version)
 - Install Ngrok for the API Gateaway
